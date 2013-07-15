@@ -1,0 +1,55 @@
+--- src/system.h
++++ src/system.h
+@@ -169,7 +169,7 @@
+ 
+     void LoadTut()
+     {
+-        LoadDB(frame->exepath+L"/examples/tutorial.cts");
++        LoadDB(L"/usr/share/treesheets/examples/tutorial.cts");
+     }
+ 
+     Cell *&InitDB(int sizex, int sizey = 0)
+--- src/myframe.h
++++ src/myframe.h
+@@ -72,8 +72,8 @@
+ 
+         wxIconBundle icons;
+         wxIcon iconbig;
+-        icon   .LoadFile(exepath+L"/images/icon16.png", wxBITMAP_TYPE_PNG);
+-        iconbig.LoadFile(exepath+L"/images/icon32.png", wxBITMAP_TYPE_PNG);
++        icon   .LoadFile(L"/usr/share/treesheets/images/icon16.png", wxBITMAP_TYPE_PNG);
++        iconbig.LoadFile(L"/usr/share/treesheets/images/icon32.png", wxBITMAP_TYPE_PNG);
+         #ifdef WIN32
+             int iconsmall = ::GetSystemMetrics(SM_CXSMICON);
+             int iconlarge = ::GetSystemMetrics(SM_CXICON);
+@@ -84,9 +84,9 @@
+         icons.AddIcon(iconbig);
+         SetIcons(icons);
+         
+-        if(!line_nw.LoadFile(exepath+L"/images/render/line_nw.png", wxBITMAP_TYPE_PNG) ||
+-           !line_sw.LoadFile(exepath+L"/images/render/line_sw.png", wxBITMAP_TYPE_PNG) ||
+-           !foldicon.LoadFile(exepath+L"/images/nuvola/fold.png"))
++        if(!line_nw.LoadFile(L"/usr/share/treesheets/images/render/line_nw.png", wxBITMAP_TYPE_PNG) ||
++           !line_sw.LoadFile(L"/usr/share/treesheets/images/render/line_sw.png", wxBITMAP_TYPE_PNG) ||
++           !foldicon.LoadFile(L"/usr/share/treesheets/images/nuvola/fold.png"))
+         {
+             wxMessageBox(L"Error loading core data file (TreeSheets not installed correctly?)", L"Initialization Error", wxOK, this);
+             // FIXME: what is the correct way to exit?
+@@ -462,7 +462,7 @@
+             #define SEPARATOR tb->AddSeparator()
+             #endif
+ 
+-            wxString iconpath = exepath + (iconset ? L"/images/webalys/toolbar/" : L"/images/nuvola/toolbar/");
++            wxString iconpath = wxString(L"/usr/share/treesheets") + (iconset ? L"/images/webalys/toolbar/" : L"/images/nuvola/toolbar/");
+             tb->SetToolBitmapSize(iconset ? wxSize(18, 18) : wxSize(22, 22));
+ 
+             AddTBIcon(tb, L"New (CTRL+n)",           A_NEW,     iconpath+L"filenew.png");
+@@ -498,7 +498,7 @@
+             tb->AddControl(new ColorDropdown(tb, A_BORDCOLOR, 6));
+             tb->AddSeparator();
+             tb->AddControl(new wxStaticText(tb, wxID_ANY, L"Image "));
+-            wxString imagepath = exepath + L"/images/nuvola/dropdown/";
++            wxString imagepath = L"/usr/share/treesheets/images/nuvola/dropdown/";
+             idd = new ImageDropdown(tb, imagepath);
+             tb->AddControl(idd);
+             tb->Realize();

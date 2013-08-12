@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>                                                                                                     
+<repositories version="1.0">
+	<repo priority="50" quality="experimental" status="unofficial">
+		<name>jscinoz</name>
+		<description>Portage overlay for various things not in other overlays</description>
+		<homepage>http://github.com/jscinoz/</homepage>
+		<owner>
+			<email>jscinoz@jscinoz.so</email>
+		</owner>
+		<source type="git">git://github.com/jscinoz/jscinoz-overlay.git</source>
+	</repo>
+</repositories>

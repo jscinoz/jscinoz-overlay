@@ -79,12 +79,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}/${PN}-backtrace.patch"
-
-	# bug  #408025
-	epatch "${FILESDIR}/${PN}-convert-path.patch"
-
 	epatch_user
 }
 

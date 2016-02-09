@@ -16,7 +16,7 @@ LICENSE="ZLIB"
 
 SLOT="0"
 
-DEPEND="x11-libs/wxGTK:2.9[X] media-libs/libpng:1.2"
+DEPEND=">=x11-libs/wxGTK-3.0.1[X] media-libs/libpng:1.2"
 
 RDEPEND="${DEPEND}"
 WX_GTK_VER="2.9"

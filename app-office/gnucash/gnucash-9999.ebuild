@@ -85,6 +85,8 @@ src_configure() {
 		myconf+=" --disable-dbi"
 	fi
 
+	ln -s LICENSE COPYING
+
 	# gtkmm is experimental and shouldn't be enabled, upstream bug #684166
 	gnome2_src_configure \
 		$(use_enable debug) \

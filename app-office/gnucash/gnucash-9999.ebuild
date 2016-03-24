@@ -86,6 +86,7 @@ src_configure() {
 	fi
 
 	ln -s LICENSE COPYING
+	touch INSTALL
 
 	# gtkmm is experimental and shouldn't be enabled, upstream bug #684166
 	gnome2_src_configure \

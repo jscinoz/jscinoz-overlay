@@ -36,12 +36,20 @@ pkg_nofetch() {
 	eerror "Please wait 24 hours and sync your portage tree before reporting fetch failures."
 }
 
+src_prepare() {
+	sed -i "s:/usr/share/games/$PN:/usr/libexec:" usr/bin/$PN
+
+	eapply_user
+}
+
 src_install() {
 	dobin usr/bin/$PN
 	dodoc usr/share/doc/$PN/*
 
-	insinto /usr/share/games
-	doins -r usr/share/games/$PN
+	exeinto /usr/libexec
+	doexe usr/share/games/$PN/runescape
+	#insinto /usr/share/games
+	#doins -r usr/share/games/$PN
 
 	insinto /usr/share/applications
 	doins usr/share/applications/${PN}.desktop

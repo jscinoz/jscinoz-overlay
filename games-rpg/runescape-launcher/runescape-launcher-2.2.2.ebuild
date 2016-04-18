@@ -23,11 +23,11 @@ RESTRICT="bindist mirror strip"
 S="${WORKDIR}"
 
 RDEPEND="
-	media-libs/libsdl2
-	media-libs/glew
-	media-libs/libvorbis
-	net-libs/webkit-gtk
-	net-misc/curl
+	>=media-libs/libsdl2-2.0.2
+	>=media-libs/glew-1.10.0
+	>=media-libs/libvorbis-1.3.2
+	>=net-libs/webkit-gtk-2.4.8
+	>=net-misc/curl-7.35.0
 "
 
 pkg_nofetch() {

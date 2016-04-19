@@ -34,13 +34,12 @@ RDEPEND="
 	>=net-misc/curl-7.35.0
 "
 
-pkg_nofetch() {
-	eerror "Please wait 24 hours and sync your portage tree before reporting fetch failures."
-}
-
 src_prepare() {
 	# Fix path in launcher script
 	sed -i "s:/usr/share/games/$PN:/usr/libexec:" usr/bin/$PN
+
+	# Add missing trailing semicolon to .desktop MimeType entry
+	sed -i '/MimeType=/{/;$/!{s/$/;/}}' usr/share/applications/${PN}.desktop
 
 	eapply_user
 }

@@ -35,6 +35,7 @@ pkg_nofetch() {
 }
 
 src_prepare() {
+	# Fix path in launcher script
 	sed -i "s:/usr/share/games/$PN:/usr/libexec:" usr/bin/$PN
 
 	eapply_user

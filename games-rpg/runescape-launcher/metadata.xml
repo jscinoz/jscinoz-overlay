@@ -6,6 +6,6 @@
 		<name>Jack Coulter</name>
 	</maintainer>
 	<use>
-    <flag name="kde">Install KDE4 protocol handlers for rs-launch:// and rs-launchs:// URIs</flag>
+		<flag name="kde">Install KDE4 protocol handlers for rs-launch:// and rs-launchs:// URIs</flag>
 	</use>
 </pkgmetadata>

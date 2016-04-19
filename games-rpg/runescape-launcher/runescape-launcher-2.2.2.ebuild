@@ -1,8 +1,12 @@
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
 EAPI=6
 
 inherit multilib unpacker
 
-DESCRIPTION="Official Runescape native client launcher"
+DESCRIPTION="Official RuneScape NXT client launcher"
 HOMEPAGE="http://www.runescape.com"
 
 SRC_URI="

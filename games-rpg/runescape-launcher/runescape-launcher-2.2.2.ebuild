@@ -27,6 +27,7 @@ RESTRICT="bindist mirror strip"
 S="${WORKDIR}"
 
 RDEPEND="
+	media-libs/libpng:1.2
 	>=media-libs/libsdl2-2.0.2
 	>=media-libs/glew-1.10.0:0/1.10
 	>=media-libs/libvorbis-1.3.2

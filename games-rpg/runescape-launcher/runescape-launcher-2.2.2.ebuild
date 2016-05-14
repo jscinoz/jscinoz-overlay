@@ -42,6 +42,9 @@ src_prepare() {
 	# Add missing trailing semicolon to .desktop MimeType entry
 	sed -i '/MimeType=/{/;$/!{s/$/;/}}' usr/share/applications/${PN}.desktop
 
+	# Fix path to launcher script
+	sed -i "s:/usr/bin/$PN:/opt/bin/$PN:" usr/share/applications/${PN}.desktop
+
 	xdg_src_prepare
 
 	eapply_user

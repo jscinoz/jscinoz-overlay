@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>jscinoz@jscinoz.so</email>
-		<name>Jack Coulter</name>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
 	</maintainer>
-	<use>
-		<flag name="kde">Install KDE4 protocol handlers for rs-launch:// and rs-launchs:// URIs</flag>
-	</use>
 </pkgmetadata>

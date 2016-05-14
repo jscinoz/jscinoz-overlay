@@ -4,14 +4,14 @@
 
 EAPI=6
 
-inherit multilib unpacker
+inherit unpacker xdg gnome2-utils
 
 DESCRIPTION="Official RuneScape NXT client launcher"
 HOMEPAGE="http://www.runescape.com"
 
 SRC_URI="
 	amd64? (
-		http://content.runescape.com/downloads/ubuntu/pool/non-free/r/runescape-launcher/runescape-launcher_${PV}_amd64.deb
+		http://content.runescape.com/downloads/ubuntu/pool/non-free/r/${PN}/${PN}_${PV}_amd64.deb
 	)
 "
 
@@ -37,19 +37,22 @@ RDEPEND="
 
 src_prepare() {
 	# Fix path in launcher script
-	sed -i "s:/usr/share/games/$PN:/usr/libexec:" usr/bin/$PN
+	sed -i "s:/usr/share/games/$PN:/opt/$PN:" usr/bin/$PN
 
 	# Add missing trailing semicolon to .desktop MimeType entry
 	sed -i '/MimeType=/{/;$/!{s/$/;/}}' usr/share/applications/${PN}.desktop
+
+	xdg_src_prepare
 
 	eapply_user
 }
 
 src_install() {
+	into /opt
 	dobin usr/bin/$PN
 	dodoc usr/share/doc/$PN/*
 
-	exeinto /usr/libexec
+	exeinto /opt/$PN
 	doexe usr/share/games/$PN/runescape
 
 	insinto /usr/share/applications
@@ -62,4 +65,19 @@ src_install() {
 		insinto /usr/share/kde4
 		doins -r usr/share/kde4/services
 	fi
+}
+
+pkg_preinst() {
+	xdg_pkg_preinst
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	gnome2_icon_cache_update
 }

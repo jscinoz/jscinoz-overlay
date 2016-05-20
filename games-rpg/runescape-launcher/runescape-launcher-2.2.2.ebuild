@@ -9,11 +9,9 @@ inherit unpacker xdg gnome2-utils
 DESCRIPTION="Official RuneScape NXT client launcher"
 HOMEPAGE="http://www.runescape.com"
 
-SRC_URI="
-	amd64? (
-		http://content.runescape.com/downloads/ubuntu/pool/non-free/r/${PN}/${PN}_${PV}_amd64.deb
-	)
-"
+SRC_URI="http://content.runescape.com/downloads/ubuntu/pool/non-free/r/${PN}/${PN}_${PV}_amd64.deb"
+
+QA_PREBUILT="/opt/runescape-launcher/runescape"
 
 SLOT="0"
 
